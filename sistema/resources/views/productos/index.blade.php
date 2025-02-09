@@ -25,17 +25,13 @@
             <td>{{ $item->precio}}</td>
             <td>{{ $item->existencia}}</td>
             <td class="text-center">
-                <form action="" method="post">
-                    @csrf
-                    @method('PUT')
-                    <button type="submit"><i class="bi bi-pencil-square fs-5"></i></button>
-                </form>
+                <a href="{{ url('/productos/'.$item->id.'/edit') }}"><i class="bi bi-pencil-square text-light fs-5"></i></a>
             </td>
             <td class="text-center">
                 <form action="{{ url('/productos/'.$item->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit"><i class="bi bi-trash2-fill fs-5"></i></button>
+                    <button type="submit" class="botonDelete"><i class="bi bi-trash2-fill fs-5"></i></button>
                 </form>
             </td>
         </tr>

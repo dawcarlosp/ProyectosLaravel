@@ -53,7 +53,7 @@ class ProductoController extends Controller
     public function edit(string $id)
     {
        $producto = Producto::find($id);
-       return view('producto.edit',[Producto::class, "producto" => $producto]);
+       return view('productos.edit',[Producto::class, "producto" => $producto]);
     }
 
     /**
@@ -61,7 +61,12 @@ class ProductoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $producto->descripcion = $request->input('descripcion');
+        $producto->precio = $request->input('precio');
+        $producto->existencia = $request->input('existencia');
+        $producto->save();
+        return redirect('/productos');
     }
 
     /**
