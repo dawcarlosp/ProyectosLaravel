@@ -13,7 +13,7 @@
 
 <body class="bg-dark text-light">
     <main>
-        <div class="container py-4">
+        <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
             @yield('content')
         </div>
     </main>

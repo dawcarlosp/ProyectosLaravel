@@ -19,7 +19,12 @@
     <tbody>
         @foreach($lista AS $item)
         <tr>
-            <th scope="row">{{ $item->id}}</th>
+            <th scope="row">
+                <a href="{{ url('/productos/'.$item->id)}}" class="text-light text-decoration-none">
+                <i class="bi bi-eye-fill fs-5"></i>
+                {{ $item->id}}
+                </a>
+            </th>
             <td>{{ $item->codigo}}</td>
             <td>{{ $item->descripcion}}</td>
             <td>{{ $item->precio}}</td>

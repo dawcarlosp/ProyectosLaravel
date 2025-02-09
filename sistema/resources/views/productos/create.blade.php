@@ -3,7 +3,7 @@
 @section('title', 'Crear Producto')
 
 @section('content')
-<form action="{{ url('/productos') }}" method="post">
+<form action="{{ url('/productos') }}" method="post" class="mb-3 bg-black p-5 rounded-5 border border-light">
     @csrf
     <legend class="text-center font-weight-bold">Crear Producto</legend>
     <div class="mb-2 text-center">

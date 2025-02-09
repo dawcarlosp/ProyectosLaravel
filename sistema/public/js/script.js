@@ -5,3 +5,10 @@ botones.forEach((boton) => {
         evento.preventDefault();
    })
 });
+let botonesEdit = document.querySelectorAll('.btn.btn-light.font-weight-bold.btn-edit');
+botonesEdit.forEach((boton) => {
+    boton.addEventListener("click",(ev) =>{
+        if(!confirm("Estas seguro de que deseas actualizar este Elemento?"))
+            ev.preventDefault();
+    })
+})

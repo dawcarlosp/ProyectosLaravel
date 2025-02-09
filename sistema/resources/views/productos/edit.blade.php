@@ -1,9 +1,9 @@
 @extends('layout/template')
 
-@section('title', 'Editar producto')
+@section('title', 'Editar producto '.$producto->id)
 
 @section('content')
-<form action="{{ url('/productos/'.$producto->id) }}" method="post">
+<form action="{{ url('/productos/'.$producto->id) }}" method="post" class="mb-3 bg-black p-5 rounded-5 border border-light">
     @method("put")
     @csrf
     <legend class="text-center font-weight-bold">Editar Producto: {{$producto->id}}</legend>
@@ -20,7 +20,7 @@
         <input type="number" id="existencia" class="form-control" name="existencia" step="1"  value="{{trim($producto->existencia)}}">
     </div>
     <div class="text-center">
-    <input type="submit" value="Actualizar" class="btn btn-light font-weight-bold">
+    <input type="submit" value="Actualizar" class="btn btn-light font-weight-bold btn-edit">
     </div>   
 </form>
 <a class="btn btn-light font-weight-bold" href="{{url('/productos')}}">Volver a inicio</a>
