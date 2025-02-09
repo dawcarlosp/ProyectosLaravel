@@ -1,0 +1,28 @@
+.dog {
+    width: 10%;
+    animation: movimiento 3s infinite;
+}
+#equipo {
+    animation: movimiento 3s infinite;
+}
+button {
+    animation: movimiento 3s infinite;
+}
+a {
+    animation: movimiento 3s infinite;
+}
+
+.btn{
+    animation: movimiento 3s infinite;
+}
+@keyframes movimiento {
+    0% {
+        transform: scale(1.01);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1.01);
+    }
+}
