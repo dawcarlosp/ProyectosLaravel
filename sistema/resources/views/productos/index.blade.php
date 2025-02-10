@@ -36,7 +36,7 @@
                 <form action="{{ url('/productos/'.$item->id) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="botonDelete"><i class="bi bi-trash2-fill fs-5"></i></button>
+                    <button type="submit" class="botonDelete" ><i class="bi bi-trash2-fill fs-5"></i></button>
                 </form>
             </td>
         </tr>
@@ -44,5 +44,14 @@
 
     </tbody>
 </table>
-<a class="btn btn-light" href="productos/create" value="button">Crear nuevo producto</a>
+<a class="btn btn-light" href="productos/create" value="button" id="boton">Crear nuevo producto</a>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("keypress", function (ev) {
+     if(ev.key === "Enter"){
+        document.getElementById("boton").click();
+     }
+    });
+  });
+</script>
 @endsection

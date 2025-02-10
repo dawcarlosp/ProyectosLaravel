@@ -22,5 +22,14 @@
     <input type="submit" value="Crear" class="btn btn-light font-weight-bold">
     </div>   
 </form>
-<a class="btn btn-light font-weight-bold" href="{{url('/productos')}}">Volver a inicio</a>
+<a class="btn btn-light font-weight-bold" href="{{url('/productos')}}" class="boton">Volver a inicio</a>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("keypress", function (ev) {
+     if(ev.key === " "){
+       document.getElementById("boton").click();
+     }
+    });
+  });
+</script>
 @endsection

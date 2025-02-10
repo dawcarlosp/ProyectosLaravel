@@ -12,8 +12,11 @@ class ProductoController extends Controller
      */
     public function index()
     {
+        /* 
         $productos = DB::select('Select * FROM productos WHERE valido = 1');
-        return view('productos.index', ['lista'  => $productos]);
+        */
+
+        return view('productos.index', ['lista'  => Producto::where('valido', '=',1)->get()]);
     }
 
     /**
