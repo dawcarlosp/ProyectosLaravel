@@ -19,7 +19,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        
+        return view('alumnos.create');
     }
 
     /**
@@ -27,7 +27,14 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $alumno = new Alumno();
+        $alumno->matricula = $request->input('matricula');
+        $alumno->nombre = $request->input('nombre');
+        $alumno->fecha_nacimiento = $request->input('fecha');
+        $alumno->telefono = $request->input('telefono');
+        $alumno->email = $request->input('telefono');     
+        $alumno->save();
+        return redirect("/alumnos");
     }
 
     /**
