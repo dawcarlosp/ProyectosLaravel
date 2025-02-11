@@ -11,7 +11,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        return view('alumnos.index',['lista'=>Alumno::all()]);
+        $mensaje = session('mensaje');
+        $id = session('id');
+        return view('alumnos.index',['lista'=>Alumno::all(), 'mensaje' => $mensaje, 'id' => $id]);
     }
 
     /**
@@ -72,8 +74,7 @@ class AlumnoController extends Controller
             $alumno->telefono = $request->input('telefono');
             $alumno->email = $request->input('email');
             $alumno->save();
-            
-           return redirect('/alumnos');
+            return redirect()->route('alumnos.index')->with('mensaje', '¡Registro modificado!')->with('id',$id);  
     }
 
     /**

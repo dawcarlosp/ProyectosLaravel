@@ -3,6 +3,11 @@
 @section('title', 'Alumnos')
 
 @section('content')
+@if ($mensaje)
+<div class="alert alert-success">
+    {{ $mensaje }}
+</div>
+@endif
 <h1 class="text-center">Listado de alumnos</h1>
 <table class="table table-dark table-striped table-bordered table-hover table-sm table-responsive">
     <thead>
@@ -15,15 +20,18 @@
             <th scope="col">Email</th>
             <th scope="col" class="text-center">EDITAR</th>
             <th scope="col" class="text-center">ELIMINAR</th>
+            @if ($mensaje)
+            <th scope="col"></th>
+            @endif
         </tr>
     </thead>
     <tbody>
-    @foreach($lista AS $item)
+        @foreach($lista AS $item)
         <tr>
             <th scope="row">
                 <a href="{{ url('/alumnos/'.$item->id)}}" class="text-light text-decoration-none">
-                <i class="bi bi-eye-fill fs-5"></i>
-                {{ $item->id}}
+                    <i class="bi bi-eye-fill fs-5"></i>
+                    {{ $item->id}}
                 </a>
             </th>
             <td>{{ $item->matricula}}</td>
@@ -41,6 +49,15 @@
                     <button type="submit" class="botonDelete"><i class="bi bi-trash2-fill fs-5"></i></button>
                 </form>
             </td>
+            @if ($mensaje)
+            <td>
+                @if($id == $item->id)
+                <div class="alert alert-success">
+                    {{ $mensaje }}
+                </div>
+                @endif
+            </td>
+            @endif
         </tr>
         @endforeach
 
