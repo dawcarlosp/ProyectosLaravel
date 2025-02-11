@@ -48,9 +48,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumno $alumno)
+    public function edit(string $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        return view("alumnos.edit", [Alumno::class, "alumno" => $alumno]);
     }
 
     /**
