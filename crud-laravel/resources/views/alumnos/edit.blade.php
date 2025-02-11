@@ -6,7 +6,7 @@
 
 <main>
     <div class="container">
-        <h2>Registrar alumno {{$alumno->nombre}}</h2>
+        <h2>Editar alumno {{$alumno->id}}</h2>
         <form action="{{url('alumnos/'.$alumno->id)}}" method="post">
         @method("put")    
         @csrf
@@ -43,7 +43,7 @@
 
             </div>
             <a href="{{url('alumnos')}}" class="btn btn-secondary">Regresar</a>
-            <button class="btn btn-success" >Actualizar</button>
+            <button class="btn btn-success" type="submit">Actualizar</button>
         </form>
     </div>
 </main>

@@ -57,9 +57,23 @@ class AlumnoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'matricula' => 'required|max:10|unique:alumnos,matricula,'. $id ,
+            'nombre' => 'required| max: 255',
+            'fecha' => 'required|date',
+            'telefono' => 'required',
+            'email' => 'nullable|email']);
+            $alumno = Alumno::find($id);
+            $alumno->matricula = $request->input('matricula');
+            $alumno->nombre = $request->input('nombre');
+            $alumno->fecha_nacimiento = $request->input('fecha');
+            $alumno->telefono = $request->input('telefono');
+            $alumno->email = $request->input('email');
+            $alumno->save();
+            
+           return redirect('/alumnos');
     }
 
     /**
