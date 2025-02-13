@@ -3,11 +3,7 @@
 @section('title', 'Alumnos')
 
 @section('content')
-@if ($mensaje)
-<div class="alert alert-success">
-    {{ $mensaje }}
-</div>
-@endif
+
 <h1 class="text-center">Listado de alumnos</h1>
 <table class="table table-dark table-striped table-bordered table-hover table-sm table-responsive">
     <thead>
@@ -29,7 +25,7 @@
         @foreach($lista AS $item)
         <tr>
             <th scope="row">
-                <a href="{{ url('/alumnos/'.$item->id)}}" class="text-light text-decoration-none">
+                <a href="{{ route('alumnos.show', $item->id) }}" class="text-light text-decoration-none">
                     <i class="bi bi-eye-fill fs-5"></i>
                     {{ $item->id}}
                 </a>

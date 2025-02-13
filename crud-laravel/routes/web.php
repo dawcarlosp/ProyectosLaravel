@@ -10,3 +10,4 @@ Route::post('/alumnos', [AlumnoController::class, "store"]);
 Route::get('/alumnos/{id}/edit', [AlumnoController::class, "edit"]);
 Route::put('/alumnos/{id}', [AlumnoController::class, "update"]);
 Route::delete('/alumnos/{id}', [AlumnoController::class, "destroy"]);
+Route::get('/alumnos/{alumno}', [AlumnoController::class, "show"])->name('alumnos.show');

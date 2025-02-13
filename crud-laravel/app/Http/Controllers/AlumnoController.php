@@ -11,9 +11,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $mensaje = session('mensaje');
-        $id = session('id');
-        return view('alumnos.index',['lista'=>Alumno::all(), 'mensaje' => $mensaje, 'id' => $id]);
+        //$mensaje = session('mensaje');
+        //$id = session('id');
+        return view('alumnos.index',['lista'=>Alumno::all()]);
     }
 
     /**
@@ -44,7 +44,7 @@ class AlumnoController extends Controller
      */
     public function show(Alumno $alumno)
     {
-        //
+        return view('alumnos.show', compact('alumno'));
     }
 
     /**

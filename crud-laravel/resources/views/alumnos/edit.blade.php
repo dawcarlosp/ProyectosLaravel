@@ -49,3 +49,4 @@
 </main>
 
 @endsection
+<script src="{{ asset('js/edit.js') }}" defer></script>
