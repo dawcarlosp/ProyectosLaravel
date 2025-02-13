@@ -36,7 +36,7 @@ class AlumnoController extends Controller
         $alumno->telefono = $request->input('telefono');
         $alumno->email = $request->input('telefono');     
         $alumno->save();
-        return redirect("/alumnos");
+        return redirect("/alumnos")->with('mensajeStore', '¡Alumno añadido correctamente!');
     }
 
     /**

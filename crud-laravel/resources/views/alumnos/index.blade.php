@@ -68,6 +68,11 @@
     {{ session('mensajeDestroy') }}
 </div>
 @endif
+@if(session('mensajeStore'))
+<div class="alert alert-info">
+    {{ session('mensajeStore') }}
+</div>
+@endif
 <a class="btn btn-light" href="alumnos/create" value="button">Dar de alta nuevo Alumno</a>
 @endsection
 <script src="{{ asset('js/index.js') }}" defer></script>
