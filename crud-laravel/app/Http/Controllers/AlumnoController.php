@@ -29,6 +29,23 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.max' => 'La matrícula no puede tener más de 10 caracteres.',
+            'matricula.unique' => 'La matrícula ya está registrada en otro alumno.',
+            'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'fecha.required' => 'La fecha de nacimiento es obligatoria.',
+            'fecha.date' => 'La fecha de nacimiento debe ser una fecha válida.',
+            'telefono.required' => 'El teléfono es obligatorio.',
+            'email.email' => 'El correo electrónico debe ser una dirección válida.',
+        ];
+        $request->validate([
+            'matricula' => 'required|max:10|unique:alumnos',
+            'nombre' => 'required| max: 255',
+            'fecha' => 'required|date',
+            'telefono' => 'required',
+            'email' => 'nullable|email'], $messages);
         $alumno = new Alumno();
         $alumno->matricula = $request->input('matricula');
         $alumno->nombre = $request->input('nombre');
@@ -61,12 +78,24 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $messages = [
+            'matricula.required' => 'La matrícula es obligatoria.',
+            'matricula.max' => 'La matrícula no puede tener más de 10 caracteres.',
+            'matricula.unique' => 'La matrícula ya está registrada en otro alumno.',
+            'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.max' => 'El nombre no puede tener más de 255 caracteres.',
+            'fecha.required' => 'La fecha de nacimiento es obligatoria.',
+            'fecha.date' => 'La fecha de nacimiento debe ser una fecha válida.',
+            'telefono.required' => 'El teléfono es obligatorio.',
+            'email.email' => 'El correo electrónico debe ser una dirección válida.',
+        ];
         $request->validate([
             'matricula' => 'required|max:10|unique:alumnos,matricula,'. $id ,
             'nombre' => 'required| max: 255',
             'fecha' => 'required|date',
             'telefono' => 'required',
-            'email' => 'nullable|email']);
+            'email' => 'nullable|email'], $messages);
+            
             $alumno = Alumno::find($id);
             $alumno->matricula = $request->input('matricula');
             $alumno->nombre = $request->input('nombre');

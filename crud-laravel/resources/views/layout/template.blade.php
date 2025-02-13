@@ -18,9 +18,9 @@
     </main>
     <footer class="text-end">
         <div class="dog">
-            <img src="https://i.pinimg.com/originals/f0/2f/78/f02f786e4b205a91284f8fca6eb35c07.jpg" alt="" width="50px" height="auto" class="rounded-5">
-            <span>Guardián</span>
-            <img src="https://i.pinimg.com/originals/f0/2f/78/f02f786e4b205a91284f8fca6eb35c07.jpg" alt="" width="50px" height="auto" class="rounded-5">
+            <img src="https://i.pinimg.com/originals/f0/2f/78/f02f786e4b205a91284f8fca6eb35c07.jpg" alt="" width="20px" height="auto" class="rounded-5">
+            <span>I.E.S Juan Bosco</span>
+            <img src="https://i.pinimg.com/originals/f0/2f/78/f02f786e4b205a91284f8fca6eb35c07.jpg" alt="" width="20px" height="auto" class="rounded-5">
         </div>
     </footer>
 </body>
