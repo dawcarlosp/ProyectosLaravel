@@ -20,7 +20,7 @@
             <th scope="col">Email</th>
             <th scope="col" class="text-center">EDITAR</th>
             <th scope="col" class="text-center">ELIMINAR</th>
-            @if ($mensaje)
+            @if (session('mensajeUpdate'))
             <th scope="col"></th>
             @endif
         </tr>
@@ -49,11 +49,11 @@
                     <button type="submit" class="botonDelete"><i class="bi bi-trash2-fill fs-5"></i></button>
                 </form>
             </td>
-            @if ($mensaje)
+            @if (session('mensajeUpdate'))
             <td>
-                @if($id == $item->id)
+                @if(session('idUpdate') == $item->id)
                 <div class="alert alert-success">
-                    {{ $mensaje }}
+                    {{ session('mensajeUpdate') }}
                 </div>
                 @endif
             </td>
@@ -63,5 +63,11 @@
 
     </tbody>
 </table>
+@if(session('mensajeDestroy'))
+<div class="alert alert-danger">
+    {{ session('mensajeDestroy') }}
+</div>
+@endif
 <a class="btn btn-light" href="alumnos/create" value="button">Dar de alta nuevo Alumno</a>
 @endsection
+<script src="{{ asset('js/index.js') }}" defer></script>

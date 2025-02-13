@@ -74,14 +74,15 @@ class AlumnoController extends Controller
             $alumno->telefono = $request->input('telefono');
             $alumno->email = $request->input('email');
             $alumno->save();
-            return redirect()->route('alumnos.index')->with('mensaje', '¡Registro modificado!')->with('id',$id);  
+            return redirect()->route('alumnos.index')->with('mensajeUpdate', '¡Registro modificado!')->with('idUpdate',$id);  
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(String $id)
     {
-        //
+        $alumno = Alumno::destroy($id);
+        return redirect()->route('alumnos.index')->with('mensajeDestroy', '¡Alumno eliminado!')->with('idDestroy',$id);
     }
 }

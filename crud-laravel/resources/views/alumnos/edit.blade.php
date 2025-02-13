@@ -47,5 +47,5 @@
         </form>
     </div>
 </main>
-<a class="btn btn-light font-weight-bold" href="{{url('/alumnos')}}">Volver a inicio</a>
+
 @endsection
