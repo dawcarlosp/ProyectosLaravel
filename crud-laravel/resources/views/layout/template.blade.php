@@ -16,6 +16,10 @@
             @yield('content')
         </div>
     </main>
+    <!-- Paginación con clase 'pagination-sm' de Bootstrap para botones más pequeños -->
+<div class="d-flex justify-content-end me-5 p-1">
+    {{$lista->links()}}
+</div>
     <footer class="text-end">
         <div class="dog">
             <img src="https://i.pinimg.com/originals/f0/2f/78/f02f786e4b205a91284f8fca6eb35c07.jpg" alt="" width="20px" height="auto" class="rounded-5">

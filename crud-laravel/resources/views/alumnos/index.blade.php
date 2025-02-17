@@ -5,6 +5,15 @@
 @section('content')
 
 <h1 class="text-center">Listado de alumnos</h1>
+<form action="{{url('/alumnos/fechaNacimiento')}}" method="post" >
+    @csrf
+    <label for="fecha" class="label-form ">
+        Año de nacimiento:
+    </label>
+    <input type="date" id="fecha" name="fecha" class="form-control mb-3">
+    <button type="submit" class="btn btn-light">Mostrar los alumnos de esta fecha</button>
+    <a href="{{ url('/alumnos') }}" class="btn btn-light">Mostrar todos</a>
+</form>
 <table class="table table-dark table-striped table-bordered table-hover table-sm table-responsive">
     <thead>
         <tr>
@@ -56,7 +65,9 @@
             @endif
         </tr>
         @endforeach
-
+        @if ($lista -> isEmpty())
+        <div class="alert alert-info">Nada que mostrar</div>
+        @endif
     </tbody>
 </table>
 @if(session('mensajeDestroy'))
@@ -71,4 +82,5 @@
 @endif
 <a class="btn btn-light" href="alumnos/create" value="button">Dar de alta nuevo Alumno</a>
 @endsection
+
 <script src="{{ asset('js/index.js') }}" defer></script>

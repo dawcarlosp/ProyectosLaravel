@@ -63,3 +63,4 @@
 </main>
 
 @endsection
+<script defer src=" {{ asset('js/create.js') }}"></script>

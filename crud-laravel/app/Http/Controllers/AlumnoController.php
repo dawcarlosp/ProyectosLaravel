@@ -11,9 +11,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //$mensaje = session('mensaje');
-        //$id = session('id');
-        return view('alumnos.index',['lista'=>Alumno::all()]);
+    
+        $items = Alumno::paginate(2);
+        return view('alumnos.index',['lista'=>Alumno::paginate(2)]);
     }
 
     /**
@@ -113,5 +113,15 @@ class AlumnoController extends Controller
     {
         $alumno = Alumno::destroy($id);
         return redirect()->route('alumnos.index')->with('mensajeDestroy', '¡Alumno eliminado!')->with('idDestroy',$id);
+    }
+  
+    public function customGet(Request $request){
+    $fecha = $request->input('fecha');
+    if ($fecha) {
+        $alumnosFiltrados = Alumno::where('fecha_nacimiento', $fecha)->get();
+    } else {
+        $alumnosFiltrados = Alumno::all();
+    }
+    return view('alumnos.index', ['lista' => $alumnosFiltrados]);
     }
 }
