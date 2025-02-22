@@ -14,3 +14,4 @@ Route::delete('/alumnos/{id}', [AlumnoController::class, "destroy"]);
 Route::get('/alumnos/{alumno}', [AlumnoController::class, "show"])->name('alumnos.show');
 Route::post('/alumnos/fechaNacimiento', [AlumnoController::class, "customGet"]);
 Route::get('/tiempo/{city}', [WeatherController::class, "show"]);
+Route::get('/tiempoFoto/{city}', [WeatherController::class, "mostrar"]);
