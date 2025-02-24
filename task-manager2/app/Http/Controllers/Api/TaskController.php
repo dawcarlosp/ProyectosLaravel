@@ -3,20 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Task;
-
-/**
- * @OA\Get(
- *     path="/api/tasks",
- *     summary="Obtener todas las tareas",
- *     @OA\Response(response="200", description="Lista de tareas")
- * )
- */
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-   
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         return Task::all();
@@ -27,7 +21,7 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $task = Task::create($request -> all());
+        $task = Task::create($request->all());
         return response()->json($task,201);
     }
 
@@ -42,10 +36,10 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Task $task, Request $request)
     {
         $task->update($request->all());
-        return response()->json($task,200);
+    return response()->json($task,200);
     }
 
     /**
